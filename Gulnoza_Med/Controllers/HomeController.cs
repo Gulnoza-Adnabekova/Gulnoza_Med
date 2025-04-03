@@ -10,6 +10,25 @@ namespace Gulnoza_Med.Controllers
         {
             this.db = db;
         }
+        
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Search(string query)
+        {
+
+            if (string.IsNullOrWhiteSpace(query))
+                return BadRequest("Qidiruv so‘zi kiritilmagan!");
+
+            var results = db.Doctors
+                .Where(p => p.Name.ToLower().Contains(query.ToLower()))
+                .ToList();
+
+            return Json(results);
+        }
         public IActionResult HomePage()
         {
             var results = new Lists
