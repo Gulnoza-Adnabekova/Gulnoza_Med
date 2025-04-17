@@ -10,5 +10,6 @@ namespace Gulnoza_Med.Models
         }
         public DbSet<Doctors> Doctors { get; set; }
         public DbSet<Fields> Fields { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
