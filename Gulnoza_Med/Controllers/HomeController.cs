@@ -20,7 +20,7 @@ namespace Gulnoza_Med.Controllers
         {
 
             if (string.IsNullOrWhiteSpace(query))
-                return BadRequest("Qidiruv so‘zi kiritilmagan!");
+                return BadRequest("Qidiruv so‘zi kiritilmagan!!!");
 
             var results = db.Doctors
                 .Where(p => p.Name.ToLower().Contains(query.ToLower()))
